@@ -3,4 +3,4 @@ base:
     - group
     - admin
     - pkgs
-#    - femp
+    - femp
