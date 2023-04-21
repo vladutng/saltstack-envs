@@ -40,7 +40,7 @@ Changed default minion configs with values I learned from the landscape
     startup_states: 'highstate'
     metadata_server_grains: True
 
-Restarted the minions with service salt-minion restart after also changing /etc/salt/minion_id files with custom naming convention docker{0,1,2}
+Restarted the minions with service salt-minion restart after also changing /etc/salt/minion_id files with custom naming convention docker0{1..4}
 
 Registered the minions on the master with their own request i.e 
 
@@ -62,7 +62,7 @@ Tested they are all reachable on the network for the master node
     docker02:
         True
 
-Checked salt configs on ubuntu 22.04 for defaults that might break the system
+Checked salt configs on ubuntu 22.04 for defaults that might break the system (learned to check these AFTER they broke it)
 
     root@566fc2a195cc:~# salt-call --local config.get file_roots
     local:
@@ -93,25 +93,18 @@ Checked that the pillar values are readily available to the minions with
             ----------
             max_children:
                 10
-    docker03:
-        ----------
-        php:
-            ----------
-            max_children:
-                10
-    root@566fc2a195cc:~#
 
-Added the rest of the for the requirements:
+Added the rest of the sls files and the config files for the requirements:
 1. Install bash, vim, curl => pkgs.sls
 2. Create an admin user who is allowed to sudo to root => adminuser.sls + admingroup.sls
 3. Install and configure a basic FEMP stack => femp.sls
 4. Setup a basic website in directory /usr/local/www/default => femp.sls
 
-Tested in many iterations that the state can apply with commands such as 
+Worked though many iterations to check that the state can apply with commands such as 
 
     salt '*' state.apply test=True
 
-Per final state of entire environment, every container is up-to-date with the master
+Per final state of entire environment, every container is up-to-date
 
     root@566fc2a195cc:/srv/salt# salt '*' state.apply
     docker02:
@@ -224,6 +217,6 @@ Per final state of entire environment, every container is up-to-date with the ma
     Total run time:  111.586 ms
     root@566fc2a195cc:/srv/salt#
 
-Per screenshot included in this repo, I am able to get php_info on forwarded port
+Per screenshot included in this repo, I am able to get php_info on forwarded port from one of the containers
 
 ![img.png](phpinfo.png)
