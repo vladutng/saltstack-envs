@@ -28,7 +28,7 @@ mysql_root_pass:
 /usr/local/www/default:
   file.directory:
     - user: admin
-    - group: admingroup
+    - group: mygroup
     - mode: 755
     - makedirs: True
     - recurse:
@@ -41,7 +41,7 @@ index:
     - name: /usr/local/www/default/index.php
     - source: salt://nginx/files/index.php
     - user: admin
-    - group: admingroup
+    - group: mygroup
     - mode: 644
 
 nginx:
