@@ -42,7 +42,7 @@ index:
     - source: salt://nginx/files/index.php
     - user: admin
     - group: mygroup
-    - mode: 644
+    - mode: 755
 
 nginx:
   pkg.installed:
