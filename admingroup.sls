@@ -1,4 +1,4 @@
 mygroup:
   group.present:
-    - name: admingroup
+    - name: mygroup
     - gid: 1001
