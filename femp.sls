@@ -27,14 +27,22 @@ mysql_root_pass:
 # Install Nginx and configure default HTTP server
 /usr/local/www/default:
   file.directory:
-    - user: root
-    - group: root
+    - user: admin
+    - group: admingroup
     - mode: 755
     - makedirs: True
     - recurse:
       - user
       - group
       - mode
+
+index:
+  file.managed:
+    - name: /usr/local/www/default/index.php
+    - source: salt://nginx/files/index.php
+    - user: admin
+    - group: admingroup
+    - mode: 644
 
 nginx:
   pkg.installed:
