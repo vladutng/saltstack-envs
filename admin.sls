@@ -7,8 +7,8 @@ admin:
     - createhome: True
     - uid: 1001
     - gid: 1001
-#    - groups:
-#      - sudo
+    - groups:
+      - sudo
 
 sudoers_file:
   file.append:

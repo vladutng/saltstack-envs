@@ -44,23 +44,23 @@ nginx_service:
     - name: nginx
 
 # Install PHP-FPM and configure www pool
-php_fpm:
-  pkg.installed:
-    - name: php-fpm
+#php_fpm:
+#  pkg.installed:
+#    - name: php-fpm
 
-php_fpm_www:
-  file.managed:
-    - name: /etc/php/8.1/fpm/pool.d/www.conf
-    - source: salt://php-fpm/files/www.conf
-    - user: root
-    - group: root
-    - mode: 644
-    - template: jinja
-    - context:
-        max_children: {{ pillar['php']['max_children'] }}
-    - require:
-      - pkg: php-fpm
+#php_fpm_www:
+#  file.managed:
+#    - name: /etc/php/8.1/fpm/pool.d/www.conf
+#    - source: salt://php-fpm/files/www.conf
+#    - user: root
+#    - group: root
+#    - mode: 644
+#    - template: jinja
+#    - context:
+#        max_children: {{ pillar['php']['max_children'] }}
+#    - require:
+#      - pkg: php-fpm
 
-php_fpm_service:
-  service.running:
-    - name: php8.1-fpm
+#php_fpm_service:
+#  service.running:
+#    - name: php8.1-fpm
