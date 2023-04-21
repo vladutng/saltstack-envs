@@ -4,3 +4,4 @@ install_packages:
       - bash
       - curl
       - vim
+      - python3-jinja2

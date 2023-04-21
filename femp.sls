@@ -59,12 +59,14 @@ php_fpm:
   pkg.installed:
     - name: php-fpm
 
+{% set max_children = salt['pillar.get']('php:max_children', 7) %}
 php_fpm_www:
   file.managed:
     - name: /etc/php/8.1/fpm/pool.d/www.conf
-    - source: salt://php-fpm/files/www.conf
+    - source: salt://php-fpm/files/www.conf.jinja
     - user: root
     - group: root
+    - template: jinja
     - mode: 644
     - require:
       - pkg: php-fpm
