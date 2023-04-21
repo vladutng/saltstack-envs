@@ -4,4 +4,4 @@ install_packages:
       - bash
       - curl
       - vim
-      - python3-jinja2
+      - python3-jinja2 ## needed on minion?

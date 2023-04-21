@@ -1,6 +1,6 @@
 base:
   '*':
-    - group
-    - admin
-    - pkgs
+    - admingroup
+    - adminuser
+    - basicpkgs
     - femp
