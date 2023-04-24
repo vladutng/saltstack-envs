@@ -1,6 +1,6 @@
 base:
   '*':
-    - admingroup
-    - adminuser
-    - basicpkgs
+    - users.admingroup
+    - users.adminuser
+    - aptitude.basicpkgs
     - femp
