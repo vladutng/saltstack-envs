@@ -10,7 +10,7 @@
       - group
       - mode
 
-index:
+/usr/local/www/default/index.php:
   file.managed:
     - name: /usr/local/www/default/index.php
     - source: salt://nginx/files/index.php
@@ -22,7 +22,7 @@ nginx:
   pkg.installed:
     - name: nginx
 
-nginx_config:
+/etc/nginx/sites-available/default:
   file.managed:
     - name: /etc/nginx/sites-available/default
     - source: salt://nginx/files/default

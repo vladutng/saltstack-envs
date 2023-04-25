@@ -7,7 +7,7 @@ mariadb:
       - python3-mysqldb
 
 # Disable root remote login
-mysql_config:
+/etc/mysql/mariadb.conf.d/50-server.cnf:
   file.append:
     - name: /etc/mysql/mariadb.conf.d/50-server.cnf
     - text: 'skip-networking'
