@@ -95,10 +95,10 @@ Checked that the pillar values are readily available to the minions with
                 10
 
 Added the rest of the sls files and the config files for the requirements:
-1. Install bash, vim, curl => pkgs.sls
-2. Create an admin user who is allowed to sudo to root => adminuser.sls + admingroup.sls
-3. Install and configure a basic FEMP stack => femp.sls
-4. Setup a basic website in directory /usr/local/www/default => femp.sls
+1. Install bash, vim, curl => aptitude/
+2. Create an admin user who is allowed to sudo to root => users/
+3. Install and configure a basic FEMP stack => nginx/, php-fpm/ and mysql/
+4. Setup a basic website in directory /usr/local/www/default => nginx/, php-fpm/ and mysql/
 
 Worked though many iterations to check that the state can apply with commands such as 
 

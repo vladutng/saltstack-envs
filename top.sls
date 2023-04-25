@@ -2,7 +2,7 @@ base:
   '*':
     - users.admingroup
     - users.adminuser
-    - aptitude.basicpkgs
+    - aptitude
     - mysql
     - nginx
     - php-fpm
